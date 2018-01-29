@@ -1,0 +1,23 @@
+{
+  "args": ["/opt/dpe/start.sh"],
+  "container": {
+    "docker": {
+      "portMappings": [{
+        "containerPort": @DPE_SPARK_PORT@,
+        "hostPort": 0,
+        "servicePort": 0,
+        "protocol": "tcp"
+      }]
+    }
+  },
+  "env": {
+    "LOGGER_KAFKA_BROKERS_HOST_PORT": "@LOGGER_KAFKA_BROKERS_HOST_PORT@",
+    "LOGGER_ZOOKEEPER_HOST_PORT": "@LOGGER_ZOOKEEPER_HOST_PORT@",
+    "MESOS_ZK_HOST_PORT": "@MESOS_ZK_HOST_PORT@",
+    "DOCKER_IMAGE": "@MARATHON_IMAGE@",
+    "MESOS_URIS": "@URIS@",
+    "DPE_SPARK_PORT": "@DPE_SPARK_PORT@",
+    "DKT_LOGGER_IS_KAFKA_ENABLED": "@DKT_LOGGER_IS_KAFKA_ENABLED@",
+    "DKT_LOGGER_DUMP_MSG_STDOUT": "@DKT_LOGGER_DUMP_MSG_STDOUT@"
+  }
+}

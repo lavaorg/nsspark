@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package com.verizon.dpe.protos;
+
+service DPE {
+    rpc RunSnippet (RunSnippetRequest) returns (RunSnippetReply) {}
+    rpc GetStdErrStream(StreamRequest) returns (stream StdErrorResponse) {}
+    rpc GetStdOutStream(StreamRequest) returns (stream StdOutResponse) {}
+}
+
+message StreamRequest {}
+
+message StdErrorResponse {
+    string msg = 1;
+}
+
+message StdOutResponse {
+    string msg = 1;
+}
+
+message RunSnippetRequest {
+    string lang = 1;
+    string code = 2;
+}
+
+message RunSnippetReply {
+    string msg = 1;
+}
